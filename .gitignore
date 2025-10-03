@@ -1,0 +1,4 @@
+venv/
+logs/
+movies_recommender.egg-info/
+.env
