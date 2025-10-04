@@ -2,3 +2,4 @@ venv/
 logs/
 movies_recommender.egg-info/
 .env
+data/movies.csv
