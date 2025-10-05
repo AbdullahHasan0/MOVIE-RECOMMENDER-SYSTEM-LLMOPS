@@ -14,7 +14,17 @@ class MovieRecommender:
             chain_type_kwargs={"prompt": self.prompt}
         )
     
-    def get_recommendations(self, query: str):
-        result = self.chain({"query":query})
+    # def get_recommendations(self, query: str):
+    #     result = self.chain({"query":query})
+    #     return result['result']
+    def get_recommendations(self, query: str, return_context: bool = False):
+        result = self.chain({"query": query})
+        if return_context:
+            # This gives you both the model output and the retrieved docs
+            return {
+                "answer": result['result'],
+                "context": [doc.page_content for doc in result['source_documents']],
+                "metadata": [doc.metadata for doc in result['source_documents']]
+            }
         return result['result']
         

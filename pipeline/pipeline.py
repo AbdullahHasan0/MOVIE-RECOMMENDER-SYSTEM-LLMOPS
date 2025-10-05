@@ -26,7 +26,7 @@ class MovieRecommendationPipeline:
         try:
             logger.info("Recieved a query {query}")
 
-            recommendation = self.recommender.get_recommendations(query)
+            recommendation = self.recommender.get_recommendations(query, return_context=False)
 
             logger.info("Recommendation generated successfully")
             return recommendation
